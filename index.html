@@ -8,7 +8,9 @@
 </head>
 
 <body>
-    <script>        
+    <button onclick="gameFunction()">Click to start a game</button>
+    <script>
+        function gameFunction() {
             let user = prompt("Enter rock, paper, or scissors!");
             let arr = ["rock", "paper", "scissors"];
             //array length is 3 but the last index is 2 - we don't need +1
@@ -33,7 +35,8 @@
                 alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
             } else {
                 alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nTry again!");
-            }        
+            }
+        }
     </script>
 </body>
 
