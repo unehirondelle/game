@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let user = prompt("Enter rock, paper, or scissors!");
+            let arr = ["rock", "paper", "scissors"];
+            //array length is 3 but the last index is 2 - we don't need +1
+            let comp = Math.floor(Math.random() * arr.length);
+            let choice = arr[comp];
+            console.log(comp);
+            if (user == "rock" & comp == 0) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nTry again!");
+            } else if (user == "rock" & comp == 1) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
+            } else if (user == "rock" & comp == 2) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
+            } else if (user == "paper" & comp == 0) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
+            } else if (user == "paper" & comp == 1) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nTry again!");
+            } else if (user == "paper" & comp == 2) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
+            } else if (user == "scissors" & comp == 0) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
+            } else if (user == "scissors" & comp == 1) {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
+            } else {
+                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nTry again!");
+            }
+        }
+    </script>
+</body>
+
+</html>
