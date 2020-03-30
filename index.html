@@ -33,35 +33,24 @@
             let result = "";
             if (userChoice == compChoice) {
                 result = "You tie. Try again!"
-            }
-            else if (userChoice == "rock" & compChoice == "paper") {
-                result = "You lose!";
-                compScore++;
-            } else if (userChoice == "rock" & compChoice == "scissors") {
+            } else if ((userChoice == "rock" && compChoice == "scissors") || 
+                (userChoice == "paper" && compChoice == "rock") ||
+                (userChoice == "scissors" && compChoice == "paper")) {
                 result = "You win!";
                 userScore++;
-            } else if (userChoice == "paper" & compChoice == "rock") {
-                result = "You win!";
-                userScore++;
-            } else if (userChoice == "paper" & compChoice == "scissors") {
-                result = "You lose!";
-                compScore++;
-            } else if (userChoice == "scissors" & compChoice == "rock") {
-                result = "You lose!";
-                compScore++;
             } else {
-                result = "You win!";
-                userScore++;
-            } 
+                result = "You lose!";
+                compScore++;
+            }
             console.log("compScore is " + compScore);
             console.log("userScore is " + userScore);
             document.getElementById("user").innerHTML = userScore;
             document.getElementById("comp").innerHTML = compScore;
-            alert("Your choice: " + userChoice + "\nComputer's choice: " + compChoice + "\n" + result);            
+            alert("Your choice: " + userChoice + "\nComputer's choice: " + compChoice + "\n" + result);
             openPlayAgainPrompt();
         }
         function openPlayAgainPrompt() {
-            let play = prompt("Do you want to play again?", "Please enter yes or no");
+            let play = prompt("Your score: " + userScore + "\nComputer's score: " + compScore + "\nDo you want to play again?", "Please enter yes or no");
             console.log("decision: " + play);
             if (play == "yes" || play == "Yes") {
                 openEnterOptionPrompt();
