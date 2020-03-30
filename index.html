@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <button onclick="promptFunction()">Click to start a game</button>
+    <button onclick="openEnterOptionPrompt()">Click to start a game</button>
     <table>
         <tr>
             <th>You</th>
@@ -21,6 +21,8 @@
     </table>
     <p id="end"></p>
     <script>
+        let userScore = 0;
+        let compScore = 0;
         function openEnterOptionPrompt() {
             let user = prompt("Enter rock, paper, or scissors!");
             let arr = ["rock", "paper", "scissors"];
@@ -28,33 +30,33 @@
             let comp = Math.floor(Math.random() * arr.length);
             let choice = arr[comp];
             console.log("comp's choise is " + choice);
-            let userScore = 0;
-            let compScore = 0;
-            document.getElementById("user").innerHTML = userScore;
-            document.getElementById("comp").innerHTML = compScore;
+           let result = "";
             if (user == "rock" & choice == "paper") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
-                document.getElementById("comp").innerHTML = compScore + 1;
+                result= "You lose!";
+                compScore++;
             } else if (user == "rock" & choice == "scissors") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
-                document.getElementById("comp").innerHTML = userScore + 1;
+                result= "You win!";
+                userScore++;
             } else if (user == "paper" & choice == "rock") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
-                document.getElementById("comp").innerHTML = userScore + 1;
+                result= "You win!";
+                userScore++;
             } else if (user == "paper" & choice == "scissors") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
-                document.getElementById("comp").innerHTML = compScore + 1;
+                result= "You lose!";
+                compScore++;
             } else if (user == "scissors" & choice == "rock") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou lose!");
-                document.getElementById("comp").innerHTML = compScore + 1;
+                result= "You lose!";
+                compScore++;
             } else if (user == "scissors" & choice == "paper") {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nYou win!");
-                document.getElementById("comp").innerHTML = userScore + 1;
+                result= "You win!";
+                userScore++;
             } else {
-                alert("Your choice: " + user + "\nComputer's choice: " + choice + "\nTry again!");
+                result= "Try again!";
             }
+            alert("Your choice: " + user + "\nComputer's choice: " + choice + "\n" + result);
             console.log("compScore is " + compScore);
             console.log("userScore is " + userScore);
+            document.getElementById("user").innerHTML = userScore;
+            document.getElementById("comp").innerHTML = compScore;
         }
         function openPlayAgainPrompt() {
             let play = window.prompt("Do you want to play again?", "Please enter yes or no");
