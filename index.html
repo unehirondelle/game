@@ -24,29 +24,29 @@
         let userScore = 0;
         let compScore = 0;
         function openEnterOptionPrompt() {
-            let user = prompt("Enter rock, paper, or scissors!");
+            let userChoice = prompt("Enter rock, paper, or scissors!");
             let arr = ["rock", "paper", "scissors"];
             //array length is 3 but the last index is 2 - we don't need +1
             let comp = Math.floor(Math.random() * arr.length);
-            let choice = arr[comp];
-            console.log("comp's choise is " + choice);
+            let compChoice = arr[comp];
+            console.log("comp's choise is " + compChoice);
             let result = "";
-            if (user == choice) {
+            if (userChoice == compChoice) {
                 result = "You tie. Try again!"
             }
-            else if (user == "rock" & choice == "paper") {
+            else if (userChoice == "rock" & compChoice == "paper") {
                 result = "You lose!";
                 compScore++;
-            } else if (user == "rock" & choice == "scissors") {
+            } else if (userChoice == "rock" & compChoice == "scissors") {
                 result = "You win!";
                 userScore++;
-            } else if (user == "paper" & choice == "rock") {
+            } else if (userChoice == "paper" & compChoice == "rock") {
                 result = "You win!";
                 userScore++;
-            } else if (user == "paper" & choice == "scissors") {
+            } else if (userChoice == "paper" & compChoice == "scissors") {
                 result = "You lose!";
                 compScore++;
-            } else if (user == "scissors" & choice == "rock") {
+            } else if (userChoice == "scissors" & compChoice == "rock") {
                 result = "You lose!";
                 compScore++;
             } else {
@@ -57,11 +57,11 @@
             console.log("userScore is " + userScore);
             document.getElementById("user").innerHTML = userScore;
             document.getElementById("comp").innerHTML = compScore;
-            alert("Your choice: " + user + "\nComputer's choice: " + choice + "\n" + result);            
+            alert("Your choice: " + userChoice + "\nComputer's choice: " + compChoice + "\n" + result);            
             openPlayAgainPrompt();
         }
         function openPlayAgainPrompt() {
-            let play = window.prompt("Do you want to play again?", "Please enter yes or no");
+            let play = prompt("Do you want to play again?", "Please enter yes or no");
             console.log("decision: " + play);
             if (play == "yes" || play == "Yes") {
                 openEnterOptionPrompt();
