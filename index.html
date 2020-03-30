@@ -15,8 +15,8 @@
             <th>Computer</th>
         </tr>
         <tr>
-            <td id="user"></td>
-            <td id="comp"></td>
+            <td id="user">-</td>
+            <td id="comp">-</td>
         </tr>
     </table>
     <p id="end"></p>
@@ -30,39 +30,41 @@
             let comp = Math.floor(Math.random() * arr.length);
             let choice = arr[comp];
             console.log("comp's choise is " + choice);
-           let result = "";
-            if (user == "rock" & choice == "paper") {
-                result= "You lose!";
+            let result = "";
+            if (user == choice) {
+                result = "You tie. Try again!"
+            }
+            else if (user == "rock" & choice == "paper") {
+                result = "You lose!";
                 compScore++;
             } else if (user == "rock" & choice == "scissors") {
-                result= "You win!";
+                result = "You win!";
                 userScore++;
             } else if (user == "paper" & choice == "rock") {
-                result= "You win!";
+                result = "You win!";
                 userScore++;
             } else if (user == "paper" & choice == "scissors") {
-                result= "You lose!";
+                result = "You lose!";
                 compScore++;
             } else if (user == "scissors" & choice == "rock") {
-                result= "You lose!";
+                result = "You lose!";
                 compScore++;
-            } else if (user == "scissors" & choice == "paper") {
-                result= "You win!";
-                userScore++;
             } else {
-                result= "Try again!";
-            }
-            alert("Your choice: " + user + "\nComputer's choice: " + choice + "\n" + result);
+                result = "You win!";
+                userScore++;
+            } 
             console.log("compScore is " + compScore);
             console.log("userScore is " + userScore);
             document.getElementById("user").innerHTML = userScore;
             document.getElementById("comp").innerHTML = compScore;
+            alert("Your choice: " + user + "\nComputer's choice: " + choice + "\n" + result);            
+            openPlayAgainPrompt();
         }
         function openPlayAgainPrompt() {
             let play = window.prompt("Do you want to play again?", "Please enter yes or no");
             console.log("decision: " + play);
-            if (play !== "" & play != null & play !== "no" & play !== "No") {
-                gameFunction();
+            if (play == "yes" || play == "Yes") {
+                openEnterOptionPrompt();
             } else {
                 let end = "Thank you for the game!";
                 document.getElementById("end").innerHTML = end;
